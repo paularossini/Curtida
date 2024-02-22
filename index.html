@@ -14,18 +14,12 @@
 <body>
     <h5>Clique duas vezes na imagem <i class="bi bi-heart-fill heart-red"></i> para curtir</h5>
     <small>Você curtiu <span id="vezes">0</span> vezes</small>
-    <div class="carro"><img id="carroImg" src="carro.PNG" alt="carro"></div>
+    <div>
+        <div class="carro"></i></div>
+    </div>
 
+    <script src="script.js"></script>
     <!-- Bootstrap Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-    <script>
-        var curtidas = 0;
-        const carroImg = document.getElementById('carroImg');
-        carroImg.addEventListener('dblclick', function() {// dblclick = 2 clicks
-            curtidas += 1;
-            document.getElementById('vezes').innerText = curtidas;
-        });
-    </script>
 </body>
 </html>
