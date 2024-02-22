@@ -7,70 +7,29 @@ carro.addEventListener('dblclick',  (e) => {// dblclick = 2 clicks
     mostraCoracao(e)
 });
 
-const mostraCoracao = (e) => {
+function mostraCoracao(e) {
     //Cria html
     const coracao = document.createElement('i')
     coracao.classList.add('bi')
     coracao.classList.add('bi-heart-fill')
     coracao.classList.add('heart-red')
     
-    //pega o lugar do click
-    const x = e.clientX
-    const y = e.clientY
+    //pega as coordenadas do mouse
+    var x = e.clientX
+    var y = e.clientY
 
-    const leftOffset = e.target.offsetLeft
-    const topOffset = e.target.offsetTop
+    //Pega em pixels a distância de um elemento em relação ao elemento pai.
+    //O inicio do cursor e o canto superior esquerdo da div carro
+    var distanciaX = e.target.offsetLeft;
+    var distanciaY = e.target.offsetTop;
+   
+    //Calcula onde ele está
+    var posicaoX = x - distanciaX
+    var posicaoY = y - distanciaY
 
-    const xInside = x - leftOffset
-    const yInside = y - topOffset
-
-    coracao.style.top = `${yInside}px`
-    coracao.style.left = `${xInside}px`
-
+    //Add o coraçao do local calculado
+    coracao.style.top = `${posicaoY}px`
+    coracao.style.left = `${posicaoX}px`
     carro.appendChild(coracao)
-    setTimeout(() => coracao.remove(), 1000)
+    setTimeout(() => coracao.remove(), 800) //tira o coraçao
 }
-
- /*       
-const carro = document.querySelector('.carro')
-const times = document.querySelector('#times')
-
-let clickTime = 0
-let timesClicked = 0
-
-carro.addEventListener('click', (e) => {
-    if(clickTime === 0) {
-        clickTime = new Date().getTime()
-    } else {
-        if((new Date().getTime() - clickTime) < 800) {
-            createHeart(e)
-            clickTime = 0
-        } else {
-            clickTime = new Date().getTime()
-        }
-    }
-})
-
-const createHeart = (e) => {
-    const heart = document.createElement('i')
-    heart.classList.add('fas')
-    heart.classList.add('fa-heart')
-
-    const x = e.clientX
-    const y = e.clientY
-
-    const leftOffset = e.target.offsetLeft
-    const topOffset = e.target.offsetTop
-
-    const xInside = x - leftOffset
-    const yInside = y - topOffset
-
-    heart.style.top = `${yInside}px`
-    heart.style.left = `${xInside}px`
-
-    loveMe.appendChild(heart)
-
-    times.innerHTML = ++timesClicked
-
-    setTimeout(() => heart.remove(), 1000)
-}*/
