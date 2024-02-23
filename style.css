@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Arial';
     text-align: center;
@@ -10,7 +9,6 @@ body {
     align-items: center;
     margin: 2em !important;
 }
-
 h5{
     font-weight: 600;
 }
